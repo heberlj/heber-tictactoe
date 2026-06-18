@@ -1,3 +1,9 @@
+:root {
+    --bg-color: #f2f2f2;
+    --board-color: #fff;
+    --text-color: #333;
+    /* Definir todos los colores */
+}
 body {
     background-image: url('/assets/img/Backiphone.png');
     background-repeat: no-repeat;
@@ -10,17 +16,54 @@ body {
     align-items: center;
     color: #fff;
     gap: 1rem;
+    
+
+    font-family: 'Roboto', sans-serif;
 
     height: 90vh;
     background-color: #021856;
 }
 
+.hidden {
+    display: none !important;
+}
 
-@media screen and (min-width: 768px) {
+.grid-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 400px; /* Tamaño máximo en Desktop */
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantiene la proporción cuadrada */
+    background-color: var(--board-color);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+    body{
+        background-image: url('/assets/img/Backiphone.png');
+        background-color: #021856;
+    }
+
+    .grid-board { max-width: 280px; gap: 10px; }
+}
+
+@media screen and (max-width: 768px) {
     body{
         background-image: url('/assets/img/Backtablet.png');
         background-color: #021856;
     }
+
+    .grid-board { max-width: 300px; gap: 12px; }
 }
 
 @media screen and (min-width: 1024px) {
