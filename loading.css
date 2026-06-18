@@ -1,0 +1,40 @@
+#loading-screen {
+    max-width: 800px;
+    h2 {
+        font-size: 60px;
+        font-weight: bold;        
+        color: #fff;
+    }
+}
+
+#bar-container {
+    width: 100%;
+    border: solid 1px #fff;
+    height: 50px;
+    display: flex;
+}
+
+#bar {
+    width: 10%;
+    background: #EE9200;
+    border: solid 1px #fff;
+    animation: loading 4s linear forwards;
+}
+
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+    33% {
+        width: 50%;
+    }
+    65% {
+        width: 70%;
+    }
+    85% {
+        width: 73%;
+    }
+    100% {
+        width: 100%;
+    }
+}
