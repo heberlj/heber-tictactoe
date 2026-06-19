@@ -75,28 +75,6 @@ body {
     display: none !important;
 }
 
-.grid-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 100%;
-    max-width: 400px;
-    /* Tamaño máximo en Desktop */
-    margin: 20px auto;
-}
-
-.cell {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    /* Mantiene la proporción cuadrada */
-    background-color: var(--board-color);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 @media screen and (max-width: 768px) {
     body {
