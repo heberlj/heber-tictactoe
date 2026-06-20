@@ -8,9 +8,89 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <div clas="navbar"></div>
-        <div clas="board"></div>
-    </div>
+    <main id="game-board-screen" class="screen">
+
+        <div class="header-controls">
+            <button id="btn-back" class="icon-btn btn-orange-square">
+                <img src="assets/icons/atras.png" alt="Back">
+            </button>
+
+            <div class="vs-indicator">
+                <div class="player-badge active">
+                    <div class="avatar">JE</div>
+                    <span class="name">Jose Emilio</span>
+                    <span class="badge-icon mini-x">✕</span>
+                </div>
+                <div class="vs-text">VS</div>
+                <div class="player-badge">
+                    <div class="avatar">CPU</div>
+                    <span class="name">Computadora</span>
+                    <span class="badge-icon mini-o">◯</span>
+                </div>
+            </div>
+
+            <button id="btn-reset-board" class="icon-btn btn-blue-square">
+                <img src="assets/icons/reset.png" alt="Reiniciar tablero">
+            </button>
+        </div>
+
+        <div class="game-card">
+
+            <div class="inner-scoreboard">
+                <div class="stat-box">
+                    <span class="stat-name">JE</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-name">CPU</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
+                    <span class="stat-value">0 EMPATES</span>
+                </div>
+            </div>
+
+            <div class="board-grid">
+                <div class="game-cell" data-index="0">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="1">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="2">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="3">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="4">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="5">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="6">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="7">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div>
+                <div class="game-cell" data-index="8">
+                    <img class="x" src="assets/icons/icon-x-s.png" alt="">
+                    <img class="o" src="assets/icons/icon-o-s.png" alt="">
+                </div> 
+            </div>
+        </div>
+    </main>
+    
 </body>
 </html>

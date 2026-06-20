@@ -1,0 +1,232 @@
+body {
+    justify-content: start;
+}
+
+/* --- CONFIGURACION GENERAL DE LA PANTALLA --- */
+#game-board-screen {
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* --- 1. ESTILOS DEL ENCABEZADO SUPERIOR --- */
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    /* Empuja los botones a los extremos finales */
+    align-items: center;
+    width: 95%;
+    max-width: 100%;
+    /* Controla el ancho del encabezado */
+    padding: 0 40px;
+    /* Espaciado horizontal para evitar que los botones toquen los bordes */
+    margin-bottom: 150px;
+}
+
+/* Botones de Iconos (Esquinas) */
+.icon-btn {
+    width: 80px;
+    height: 80px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 12 rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.05);
+}
+
+.icon-btn img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.btn-orange-square {
+    background-color: #E48D07;
+}
+
+.btn-blue-square {
+    background-color: #2AB4FD;
+}
+
+/* Indicador central VS y Avatares */
+.vs-indicator {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-badge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* opacity: 0.6; */
+    /* Opacidad si no es su turno */
+    transition: opacity 0.3s ease;
+}
+
+.player-badge.active {
+    opacity: 1;
+    /* Opacidad completa si es su turno */
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #112244;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 3px solid #777777;
+}
+
+.player-badge.active .avatar {
+    border-color: #E48D07;
+    /* Resalta el avatar del jugador activo */
+}
+
+
+.name {
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.badge-icon {
+    position: absolute;
+    bottom: 25px;
+    right: -5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.mini-x {
+    background-color: #E48D07;
+}
+
+.mini-o {
+    background-color: #7f8c8d;
+}
+
+.vs-text {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* --- 2. EL RECUADRO CENTRAL --- */
+.game-board {
+    width: 100%;
+    background-color: #050b24;
+    border-radius: 24px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    /* Tamaño controlado del contenedor */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 3. ELEMENTOS INTERNOS DEL RECUADRO --- */
+.inner-scoreboard {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 25px;
+    align-items: end;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    flex: 1;
+
+    span {
+        font-size: 22px;
+    }
+}
+
+.stat-name {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.stat-value {
+    font-size: 16px !important;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #bdc3c7;
+
+}
+
+/* Cuadricula de las 9 casillas */
+.board-grid {
+    display: grid;
+    width: 400px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.game-cell {
+    background-color: #ffffff;
+    aspect-ratio: 1 / 1;
+    /* Mantiene la proporción cuadrada */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    position: relative;
+}
+
+.game-cell:hover {
+    transform: scale(0.95);
+}
+
+.game-card {
+    background-color: rgba(5, 11, 36, 0.3);
+    border-radius: 5%;
+    padding: 20px; 
+}
+
+.game-cell .x {
+    color: #EC8C13;
+    font-size: 70px;
+    font-family: sans-serif;
+}
+
+.game-cell .o {
+    color: #27A8F3;
+    font-size: 70px;
+    font-family: sans-serif;
+}
+
+.x,.o {
+    position: absolute;
+}
