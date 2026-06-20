@@ -14,16 +14,13 @@ body {
 
 /* --- 1. ESTILOS DEL ENCABEZADO SUPERIOR --- */
 .header-controls {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    /* Empuja los botones a los extremos finales */
-    align-items: center;
-    width: 95%;
-    max-width: 100%;
-    /* Controla el ancho del encabezado */
     padding: 0 40px;
-    /* Espaciado horizontal para evitar que los botones toquen los bordes */
     margin-bottom: 150px;
+    width: 100%;
 }
 
 /* Botones de Iconos (Esquinas) */
@@ -60,7 +57,7 @@ body {
 
 /* Indicador central VS y Avatares */
 .vs-indicator {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 20px;
 }
@@ -186,15 +183,17 @@ body {
 
 /* Cuadricula de las 9 casillas */
 .board-grid {
-    display: grid;
-    width: 400px;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
 }
 
 .game-cell {
     background-color: #ffffff;
     aspect-ratio: 1 / 1;
+    height: 100px;
+    width: 100px;
     /* Mantiene la proporción cuadrada */
     border-radius: 12px;
     display: flex;
@@ -212,7 +211,10 @@ body {
 .game-card {
     background-color: rgba(5, 11, 36, 0.3);
     border-radius: 5%;
-    padding: 20px; 
+    padding: 20px;
+    margin: 20px;
+    max-width: 385px;
+
 }
 
 .game-cell .x {
@@ -227,6 +229,80 @@ body {
     font-family: sans-serif;
 }
 
-.x,.o {
+.x,
+.o {
     position: absolute;
+}
+
+/* --- PANTALLA DE GANADOR --- */
+.resultado-container-ganador,
+.resultado-container-perdedor {
+    display: none;
+    position: absolute;
+    background: darkblue;
+    background-color: rgba(5, 11, 36, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado-container-ganador {
+    display: none;
+}
+
+.resultado-container-perdedor {
+    display: none;
+}
+
+.resultado-content {
+    background-image: url('/assets/img/BackgroundSmall2.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.trofeo {
+    width: 110px;
+    height: 110px;
+
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 25px;
+    align-items: end;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-box img {
+    width: 30px;
+}
+
+.victoria {
+    font-size: 36px;
+    font-weight: bold;
+    color: #df9800;
+}
+
+.nombre-pj {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
     <main id="game-board-screen" class="screen">
 
@@ -87,10 +89,64 @@
                 <div class="game-cell" data-index="8">
                     <img class="x" src="assets/icons/icon-x-s.png" alt="">
                     <img class="o" src="assets/icons/icon-o-s.png" alt="">
-                </div> 
+                </div>
             </div>
         </div>
     </main>
-    
+
+    <!-- Pantalla de Ganador -->
+    <div class="resultado-container-ganador">
+        <div class="resultado-content">
+            <img class="trofeo" src="assets/icons/trofeo.png" alt="">
+            <div class="victoria">VICTORIA</div>
+            <div class="nombre-pj">JOSE EMILIO</div>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-name">JE</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-name">CPU</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
+                    <span class="stat-value">0 EMPATES</span>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-play-again btn-blue-square">Proxima ronda</button>
+                <button class="btn btn-salir btn-orange-square">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Perdedor -->
+    <div class="resultado-container-perdedor">
+        <div class="resultado-content">
+            <img class="trofeo" src="assets/icons/trofeo.png" alt="">
+            <div class="victoria">PERDISTE</div>
+            <div class="nombre-pj">JOSE EMILIO</div>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-name">JE</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-name">CPU</span>
+                    <span class="stat-value">0 GANADAS</span>
+                </div>
+                <div class="stat-box">
+                    <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
+                    <span class="stat-value">0 EMPATES</span>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-play-again btn-blue-square">Proxima ronda</button>
+                <button class="btn btn-salir btn-orange-square">Salir</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
