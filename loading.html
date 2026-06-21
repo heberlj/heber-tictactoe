@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla de Carga</title>
-    <link rel="stylesheet" href="loading.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="loading.css">
 </head>
 
 <body>
@@ -15,11 +15,20 @@
         <h2 class="title">LOADING...</h2>
 
         <div id="bar-container">
-            <div id="bar">
-
-            </div>
+            <div id="bar"></div>
         </div>
+        <a href="selectmode.html" class="btn btn-blue btn-iniciar hidden">INICIAR</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(() => {
+                document.querySelector(".btn-iniciar").classList.remove("hidden");
+                document.querySelector("#bar-container").style.display = "none";
+                document.querySelector(".title").style.display = "none";
+            }, 5000);
+        });
+    </script>
 </body>
 
 </html>

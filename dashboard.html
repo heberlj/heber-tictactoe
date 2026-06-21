@@ -13,9 +13,9 @@
     <main id="game-board-screen" class="screen">
 
         <div class="header-controls">
-            <button id="btn-back" class="icon-btn btn-orange-square">
+            <a href="selectmode.html" id="btn-back" class="icon-btn btn-orange">
                 <img src="assets/icons/atras.png" alt="Back">
-            </button>
+            </a>
 
             <div class="vs-indicator">
                 <div class="player-badge active">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <button id="btn-reset-board" class="icon-btn btn-blue-square">
+            <button id="btn-reset-board" class="icon-btn btn-blue">
                 <img src="assets/icons/reset.png" alt="Reiniciar tablero">
             </button>
         </div>
@@ -124,7 +124,7 @@
     <!-- Pantalla de Perdedor -->
     <div class="resultado-container-perdedor">
         <div class="resultado-content">
-            <img class="trofeo" src="assets/icons/trofeo.png" alt="">
+            <img class="loser" src="assets/icons/loser.png" alt="">
             <div class="victoria">PERDISTE</div>
             <div class="nombre-pj">JOSE EMILIO</div>
             <div class="stats">
@@ -144,6 +144,17 @@
             <div class="btn-container">
                 <button class="btn btn-play-again btn-blue-square">Proxima ronda</button>
                 <button class="btn btn-salir btn-orange-square">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Salida -->
+    <div class="salida-container">
+        <div class="salida-content">
+            <div class="salir-text">¿Seguro que desea reiniciar la partida?</div>
+            <div class="btn-container">
+                <button class="btn btn-reiniciar btn-blue-square">REINICIAR PARTIDA</button>
+                <button class="btn btn-cancelar btn-orange-square">CANCELAR</button>
             </div>
         </div>
     </div>

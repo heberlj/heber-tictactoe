@@ -14,19 +14,22 @@ body {
 
 /* --- 1. ESTILOS DEL ENCABEZADO SUPERIOR --- */
 .header-controls {
+    flex-wrap: wrap;
     align-items: center;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: 0 40px;
-    margin-bottom: 150px;
+    padding: 0 15px;
+    margin-bottom: 45px;
     width: 100%;
+    max-width: 340px;
+    gap: 20px;
 }
 
 /* Botones de Iconos (Esquinas) */
 .icon-btn {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -47,19 +50,19 @@ body {
     object-fit: contain;
 }
 
-.btn-orange-square {
-    background-color: #E48D07;
-}
-
-.btn-blue-square {
-    background-color: #2AB4FD;
-}
-
 /* Indicador central VS y Avatares */
 .vs-indicator {
-    display: none;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    /* Centra los avatares en su nueva línea */
     gap: 20px;
+    width: 100%;
+    /* CLAVE: Ocupa todo el ancho horizontal abajo */
+    order: 1;
+    /* Asegura que se renderice al final/debajo */
+    transform: scale(1.3) translateY(30px);
+    /* Mueve el VS 30px hacia abajo y mantiene su anclaje */
 }
 
 .player-badge {
@@ -78,8 +81,8 @@ body {
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     background-color: #fff;
     border-radius: 50%;
     color: #112244;
@@ -87,7 +90,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 1.1rem;
     border: 3px solid #777777;
 }
 
@@ -129,7 +132,7 @@ body {
 
 .vs-text {
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     font-style: italic;
 }
@@ -236,7 +239,8 @@ body {
 
 /* --- PANTALLA DE GANADOR --- */
 .resultado-container-ganador,
-.resultado-container-perdedor {
+.resultado-container-perdedor,
+.salida-container {
     display: none;
     position: absolute;
     background: darkblue;
@@ -268,12 +272,18 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    max-width: 495px;
 }
 
 .trofeo {
     width: 110px;
     height: 110px;
 
+}
+
+.loser {
+    width: 150px;
+    height: 110px;
 }
 
 .stats {
@@ -305,4 +315,121 @@ body {
     font-size: 18px;
     color: #fff;
     margin-bottom: 20px;
+}
+
+/* --- PANTALLA DE SALIR --- */
+.salida-container {
+    display: none;
+}
+
+.salida-content {
+    background-image: url('/assets/img/BackgroundSmall2.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 495px;
+}
+
+.salir-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.btn-reiniciar {
+    font-size: 15px;
+    font-weight: 600;
+    width: 145px;
+    letter-spacing: 1px;
+}
+
+.btn-cancelar {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* --- 2. COMPORTAMIENTO PARA TABLET Y PC (PANTALLAS GRANDES) --- */
+/* Usamos el Media Query para restaurar todo en una sola línea horizontal */
+@media (min-width: 680px) {
+    .header-controls {
+        flex-wrap: nowrap;
+        max-width: 1200px;
+        padding: 0 40px;
+        gap: 0;
+    }
+
+    .vs-indicator {
+        width: auto;
+        justify-content: center;
+        gap: 35px;
+        order: 0;
+        transform: scale(1.0);
+    }
+
+    .icon-btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar {
+        width: 85px;
+        height: 85px;
+        font-size: 2rem;
+    }
+
+    .vs-text {
+        font-size: 2.5rem;
+    }
+
+    .name {
+        font-size: 1.1rem;
+    }
+
+    .salida-content {
+        background-image: url('/assets/img/BackgroundSmall2.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+        padding: 20px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        max-width: 495px;
+    }
+
+    .salir-text {
+        font-size: 36px;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 45px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+    }
+
+    .btn-reiniciar {
+        font-size: 18px;
+        font-weight: 600;
+        width: 175px;
+        padding: 20px;
+    }
+
+    .btn-cancelar {
+        font-size: 18px;
+        font-weight: 600;
+        width: 175px;
+        padding: 20px;
+    }
+
 }
