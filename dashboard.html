@@ -12,22 +12,27 @@
 <body>
     <main id="game-board-screen" class="screen">
 
+        <!-- ENCABEZADO -->
         <div class="header-controls">
             <a href="selectmode.html" id="btn-back" class="icon-btn btn-orange">
                 <img src="assets/icons/atras.png" alt="Back">
             </a>
 
             <div class="vs-indicator">
-                <div class="player-badge active">
-                    <div class="avatar">JE</div>
-                    <span class="name">Jose Emilio</span>
-                    <span class="badge-icon mini-x">✕</span>
+                <div class="player-badge playerbadgep1 ">
+                    <div class="avatar-container">
+                        <div class="avatarname avatar1name">JE</div>
+                        <span class="badge-icon mini-x ">✕</span>
+                    </div>
+                    <span class="playername player1name">Jose Emilio</span>
                 </div>
                 <div class="vs-text">VS</div>
-                <div class="player-badge">
-                    <div class="avatar">CPU</div>
-                    <span class="name">Computadora</span>
-                    <span class="badge-icon mini-o">◯</span>
+                <div class="player-badge playerbadgep2">
+                    <div class="avatar-container">
+                        <div class="avatarname avatar2name avatarname-disable">CPU</div>
+                        <span class="badge-icon mini-o">◯</span>
+                    </div>
+                    <span class="playername player2name">Computadora</span>
                 </div>
             </div>
 
@@ -36,15 +41,17 @@
             </button>
         </div>
 
+
+        <!-- TABLERO -->
         <div class="game-card">
 
             <div class="inner-scoreboard">
                 <div class="stat-box">
-                    <span class="stat-name">JE</span>
+                    <span class="stat-name statname1">JE</span>
                     <span class="stat-value">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-name">CPU</span>
+                    <span class="stat-name statname2">CPU</span>
                     <span class="stat-value">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
@@ -53,11 +60,14 @@
                 </div>
             </div>
 
+            <!-- DIV DONDE ESTA LA MAGIA -->
             <div class="board-grid">
+
                 <div class="game-cell" data-index="0">
                     <img class="x" src="assets/icons/icon-x-s.png" alt="">
                     <img class="o" src="assets/icons/icon-o-s.png" alt="">
                 </div>
+
                 <div class="game-cell" data-index="1">
                     <img class="x" src="assets/icons/icon-x-s.png" alt="">
                     <img class="o" src="assets/icons/icon-o-s.png" alt="">
@@ -158,6 +168,8 @@
             </div>
         </div>
     </div>
+
+    <script src="dashboard.js"></script>
 </body>
 
 </html>
