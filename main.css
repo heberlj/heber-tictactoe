@@ -34,7 +34,7 @@ body {
     background-color: #021856;
 }
 
-/* PANTALLA DE SELECCION DE MODO */
+/* ESTILOS PROPIOS DE MAIN */
 #menu-screen {
     display: flex;
     flex-direction: column;
