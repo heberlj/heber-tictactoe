@@ -1,4 +1,4 @@
-/* Contenedor central de la pantalla de nombres */ 
+/* Contenedor central de la pantalla de nombres */
 .names-container {
     display: flex;
     flex-direction: column;
@@ -21,7 +21,8 @@
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaciado entre los inputs */
+    gap: 15px;
+    /* Espaciado entre los inputs */
     width: 100%;
     margin-bottom: 25px;
 }
@@ -62,6 +63,22 @@
 /* Efecto hover discreto para cuando pasen el mouse */
 .btn-orange:hover {
     background-color: #e07b00;
-    transform: scale(1.05);
 }
 
+#btn-back-container {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#btn-back {
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}

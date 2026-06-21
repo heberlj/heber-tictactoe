@@ -1,0 +1,33 @@
+
+const inputP1 = document.querySelector('#player1-input');
+const inputP2 = document.querySelector('#player2-input');
+const btnStart = document.querySelector('#btn-start');
+const isInput2Present = inputP2 != null;
+
+function enablebtn() {
+
+    let validado = false;
+
+    if (isInput2Present) {
+        validado = inputP1.value.length > 2 && inputP2.value.length > 2;
+    } else {
+        validado = inputP1.value.length > 2
+    }
+
+    if (validado) {
+        btnStart.classList.remove('disable')
+    } else {
+        btnStart.classList.add('disable')
+    }
+}
+
+inputP1.addEventListener('keyup', enablebtn)
+inputP2?.addEventListener('keyup', enablebtn)
+
+
+btnStart.addEventListener('click', () => {
+    localStorage.setItem('player1', inputP1.value)
+    if (isInput2Present) {
+        localStorage.setItem('player2', inputP2.value)
+    }
+}) 
