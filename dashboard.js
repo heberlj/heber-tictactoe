@@ -49,9 +49,6 @@ function hacerMovimiento(indice) {
     const cell = gameCell[indice];
     const badgeP2 = document.querySelector('.playerbadgep2');
 
-    // Determinar retraso de "pensamiento" de la CPU (entre 1 y 2 segundos de forma segura)
-    const num_aleatorio = Math.random() + 1;
-
     setTimeout(() => {
         // 1. Posicionar el puntero en el badge del CPU
         if (badgeP2) {
@@ -87,7 +84,7 @@ function hacerMovimiento(indice) {
             }, 600);
         }, 200);
 
-    }, num_aleatorio * 1000);
+    }, 500);
 }
 
 function movimientoCPU() {
