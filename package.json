@@ -2,7 +2,7 @@
   "name": "heber-tictactoe",
   "version": "1.0.0",
   "description": "prueba",
-  "main": "dashboard.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
