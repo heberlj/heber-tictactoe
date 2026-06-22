@@ -138,24 +138,22 @@ function evaluarEstadoActual(ficha) {
         if (!puntaje.includes(0)) {
             const nameP1 = localStorage.getItem('player1') || 'Player 1';
             const nameP2 = localStorage.getItem('player2') || 'CPU';
-            const winnerName = (ficha === 'x') ? nameP1 : nameP2;
+            const nombreGanador = (ficha === 'x') ? nameP1 : nameP2;
 
             setTimeout(() => {
                 document.querySelector('.resultado-container-ganador').classList.remove('hidden');
-                document.querySelector('.resultado-container-ganador .nombre-pj').innerText = winnerName;
-            }, 1300)
+                document.querySelector('.resultado-container-ganador .nombre-pj').innerText = nombreGanador;
+            }, 1000)
 
-            // También actualizamos el perdedor por si acaso
-            const loserName = (ficha === 'x') ? nameP2 : nameP1;
-            document.querySelector('.resultado-container-perdedor .nombre-pj').innerText = loserName;
+            // actualiza rperdedor
+            const nombrePerdedor = (ficha === 'x') ? nameP2 : nameP1;
+            document.querySelector('.resultado-container-perdedor .nombre-pj').innerText = nombrePerdedor;
 
             const ganadas = (ficha) === 'x' ? 'ganadasP1' : 'ganadasP2';
             localStorage.setItem(ganadas, (Number(localStorage.getItem(ganadas)) ?? 0) + 1);
             actualizarUI();
+            localStorage.setItem('juego-terminado', 'true');
             hayganador = true;
-
-            document.querySelector('fake-cursor').style.width = 0;
-            document.querySelector('fake-cursor').style.height = 0;
             break;
         }
     }
@@ -165,6 +163,7 @@ function evaluarEstadoActual(ficha) {
         document.querySelector('.empate-container').classList.remove('hidden');
         localStorage.setItem('empates', (Number(localStorage.getItem('empates')) ?? 0) + 1);
         actualizarUI();
+        localStorage.setItem('juego-terminado', 'true');
     }
 }
 
@@ -210,6 +209,7 @@ actualizarUI()
 // EVENTOS
 const cells = document.querySelectorAll('.game-cell');
 
+// click en celdas
 cells.forEach(cell => {
     cell.addEventListener('click', (e) => {
         const turnoDePlayer1 = localStorage.getItem('turnoplayer1') === "true"
@@ -223,8 +223,7 @@ cells.forEach(cell => {
             cell.setAttribute('data-value', 'x');
             evaluarEstadoActual('x');
 
-            const juegoTerminado = !document.querySelector('.resultado-container-ganador').classList.contains('hidden') ||
-                !document.querySelector('.empate-container').classList.contains('hidden');
+            const juegoTerminado = localStorage.getItem('juego-terminado') === 'true'
 
             if (!localStorage.getItem('player2') && !juegoTerminado) {
                 movimientoCPU();
@@ -254,11 +253,13 @@ btncerrarempate.addEventListener('click', () => {
 
 // Boton Reset Board
 btnresetboard.addEventListener('click', () => {
+    localStorage.setItem('juego-terminado', 'false');
     window.location.reload()
 })
 
 // Boton Reiniciar Victoria
 btnReiniciarVictoria.addEventListener('click', () => {
+    localStorage.setItem('juego-terminado', 'false');
     window.location.reload()
 })
 
