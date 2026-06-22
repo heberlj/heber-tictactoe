@@ -210,14 +210,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .game-cell {
     background-color: #ffffff;
     aspect-ratio: 1 / 1;
-    height: 100px;
-    width: 100px;
+    width: 30%;
     /* Mantiene la proporción cuadrada */
     border-radius: 12px;
     display: flex;
@@ -237,8 +236,8 @@ body {
     border-radius: 5%;
     padding: 20px;
     margin: 20px;
-    max-width: 385px;
-
+    width: 90%;
+    max-width: 500px;
 }
 
 .game-cell .x {
