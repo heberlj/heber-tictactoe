@@ -200,6 +200,8 @@ function actualizarUI() {
     arrStatEmpates.forEach(stat => {
         stat.innerText = (localStorage.getItem("empates") ?? 0) + ' EMPATES';
     });
+
+    localStorage.setItem('juego-terminado', 'false');
 }
 
 actualizarUI()
