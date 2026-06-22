@@ -1,0 +1,28 @@
+{
+  "name": "heber-tictactoe",
+  "version": "1.0.0",
+  "description": "prueba",
+  "main": "dashboard.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heberlj/heber-tictactoe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/heberlj/heber-tictactoe/issues"
+  },
+  "homepage": "https://github.com/heberlj/heber-tictactoe#readme",
+  "dependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "electron": "^42.4.1",
+    "electron-packager": "^17.1.2"
+  }
+}
