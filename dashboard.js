@@ -122,10 +122,12 @@ function evaluarEstadoActual(ficha) {
 
     for (const combinacion of combinacionesGanadoras) {
         puntaje = [];
+        const indicesGanadores = [];
 
         combinacion.forEach(n => {
             if (estadoactual[n] === ficha) {
                 puntaje.push(1);
+                indicesGanadores.push(n);
             } else {
                 puntaje.push(0);
             }
@@ -136,6 +138,11 @@ function evaluarEstadoActual(ficha) {
             const nameP1 = localStorage.getItem('player1') || 'Player 1';
             const nameP2 = localStorage.getItem('player2') || 'CPU';
             const nombreGanador = (ficha === 'x') ? nameP1 : nameP2;
+
+            const cells = document.querySelectorAll('.game-cell');
+            cells[indicesGanadores[0]].style.backgroundColor = 'yellow';
+            cells[indicesGanadores[1]].style.backgroundColor = 'yellow';
+            cells[indicesGanadores[2]].style.backgroundColor = 'yellow';
 
             setTimeout(() => {
                 document.querySelector('.resultado-container-ganador').classList.remove('hidden');
@@ -150,6 +157,7 @@ function evaluarEstadoActual(ficha) {
             localStorage.setItem(ganadas, (Number(localStorage.getItem(ganadas)) ?? 0) + 1);
             actualizarUI();
             localStorage.setItem('juego-terminado', 'true');
+            document.querySelectorAll('.game-cell').forEach(cell => cell.style.pointerEvents = 'none');
             hayganador = true;
             break;
         }
@@ -199,6 +207,8 @@ function actualizarUI() {
     });
 
     localStorage.setItem('juego-terminado', 'false');
+    document.querySelectorAll('.game-cell').forEach(cell => cell.style.pointerEvents = 'auto');
+
 }
 
 actualizarUI()
@@ -264,7 +274,8 @@ btnReiniciarVictoria.addEventListener('click', () => {
 
 // Boton Salir Victoria
 btnSalirvictoria.addEventListener('click', () => {
-    window.location.href = 'selectmode.html'
+    document.querySelector('.resultado-container-ganador').classList.add('hidden');
+    document.querySelector('.resultado-container-perdedor').classList.add('hidden');
 })
 
 // Boton Atras
