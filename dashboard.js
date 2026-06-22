@@ -26,22 +26,68 @@ const combinacionesGanadoras = [
     [2, 4, 6]
 ];
 
+// Crear un puntero falso con CSS
+const pointer = document.createElement('div');
+pointer.className = 'fake-cursor';
+pointer.style.position = 'absolute';
+pointer.style.width = '24px';
+pointer.style.height = '24px';
+pointer.style.borderRadius = '50%';
+pointer.style.backgroundColor = 'rgba(255, 69, 0, 0.6)'; // Naranja semi-transparente
+pointer.style.border = '2px solid rgb(255, 69, 0)';
+pointer.style.boxShadow = '0 0 10px rgba(255, 69, 0, 0.8)';
+pointer.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)'; // Deslizamiento suave
+pointer.style.zIndex = '9999';
+pointer.style.pointerEvents = 'none';
+pointer.style.opacity = '0'; // Oculto por defecto
+pointer.style.transform = 'scale(1)';
+document.body.appendChild(pointer);
+
 // FUNCION IA PARA JUGAR
 function hacerMovimiento(indice) {
     const gameCell = document.querySelectorAll('.game-cell');
+    const cell = gameCell[indice];
+    const badgeP2 = document.querySelector('.playerbadgep2');
 
-    let num_aleatorio = Number(Math.random().toString().substring(3, 4))
-    if (num_aleatorio > 2) {
-        num_aleatorio = 2
-    }
-    if (num_aleatorio === 0) {
-        num_aleatorio = 1
-    }
-
+    // Determinar retraso de "pensamiento" de la CPU (entre 1 y 2 segundos de forma segura)
+    const num_aleatorio = Math.random() + 1;
 
     setTimeout(() => {
-        gameCell[indice].click();
-    }, num_aleatorio * 1000)
+        // 1. Posicionar el puntero en el badge del CPU
+        if (badgeP2) {
+            const badgePos = badgeP2.getBoundingClientRect();
+            pointer.style.left = `${badgePos.left + window.scrollX + (badgePos.width / 2) - 12}px`;
+            pointer.style.top = `${badgePos.top + window.scrollY + (badgePos.height / 2) - 12}px`;
+        }
+
+        // 2. Mostrar puntero
+        pointer.style.opacity = '1';
+        pointer.style.transform = 'scale(1.2)';
+
+        // 3. Deslizar al centro de la celda seleccionada
+        setTimeout(() => {
+            const cellPos = cell.getBoundingClientRect();
+            pointer.style.left = `${cellPos.left + window.scrollX + (cellPos.width / 2) - 12}px`;
+            pointer.style.top = `${cellPos.top + window.scrollY + (cellPos.height / 2) - 12}px`;
+            pointer.style.transform = 'scale(1)';
+
+            // 4. Ejecutar el click después de deslizarse (600ms)
+            setTimeout(() => {
+                pointer.style.transform = 'scale(0.7)'; // Efecto presionar click
+
+                setTimeout(() => {
+                    cell.click();
+                    pointer.style.transform = 'scale(1)';
+
+                    // Desvanecer puntero
+                    setTimeout(() => {
+                        pointer.style.opacity = '0';
+                    }, 200);
+                }, 150);
+            }, 600);
+        }, 200);
+
+    }, num_aleatorio * 1000);
 }
 
 function movimientoCPU() {
@@ -94,8 +140,10 @@ function evaluarEstadoActual(ficha) {
             const nameP2 = localStorage.getItem('player2') || 'CPU';
             const winnerName = (ficha === 'x') ? nameP1 : nameP2;
 
-            document.querySelector('.resultado-container-ganador').classList.remove('hidden');
-            document.querySelector('.resultado-container-ganador .nombre-pj').innerText = winnerName;
+            setTimeout(() => {
+                document.querySelector('.resultado-container-ganador').classList.remove('hidden');
+                document.querySelector('.resultado-container-ganador .nombre-pj').innerText = winnerName;
+            }, 1300)
 
             // También actualizamos el perdedor por si acaso
             const loserName = (ficha === 'x') ? nameP2 : nameP1;
@@ -105,6 +153,9 @@ function evaluarEstadoActual(ficha) {
             localStorage.setItem(ganadas, (Number(localStorage.getItem(ganadas)) ?? 0) + 1);
             actualizarUI();
             hayganador = true;
+
+            document.querySelector('fake-cursor').style.width = 0;
+            document.querySelector('fake-cursor').style.height = 0;
             break;
         }
     }
@@ -160,7 +211,7 @@ actualizarUI()
 const cells = document.querySelectorAll('.game-cell');
 
 cells.forEach(cell => {
-    cell.addEventListener('click', () => {
+    cell.addEventListener('click', (e) => {
         const turnoDePlayer1 = localStorage.getItem('turnoplayer1') === "true"
 
         if (turnoDePlayer1) {
@@ -170,16 +221,25 @@ cells.forEach(cell => {
             cell.style.pointerEvents = "none";
             localStorage.setItem('turnoplayer1', "false");
             cell.setAttribute('data-value', 'x');
-            evaluarEstadoActual('x')
-            movimientoCPU();
+            evaluarEstadoActual('x');
+
+            const juegoTerminado = !document.querySelector('.resultado-container-ganador').classList.contains('hidden') ||
+                !document.querySelector('.empate-container').classList.contains('hidden');
+
+            if (!localStorage.getItem('player2') && !juegoTerminado) {
+                movimientoCPU();
+            }
         } else {
-            cell.querySelector('.o').style.display = 'block';
-            avatar1.classList.remove('avatarname-disable')
-            avatar2.classList.add('avatarname-disable')
-            cell.style.pointerEvents = "none";
-            localStorage.setItem('turnoplayer1', "true")
-            cell.setAttribute('data-value', 'o');
-            evaluarEstadoActual('o')
+            // Permitir el click si es programático (CPU) o si es manual en modo PVP (Jugador vs Jugador)
+            if (!e.isTrusted || localStorage.getItem('player2')) {
+                cell.querySelector('.o').style.display = 'block';
+                avatar1.classList.remove('avatarname-disable')
+                avatar2.classList.add('avatarname-disable')
+                cell.style.pointerEvents = "none";
+                localStorage.setItem('turnoplayer1', "true")
+                cell.setAttribute('data-value', 'o');
+                evaluarEstadoActual('o')
+            }
         }
 
     })
