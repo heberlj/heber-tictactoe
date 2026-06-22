@@ -21,18 +21,18 @@
             <div class="vs-indicator">
                 <div class="player-badge playerbadgep1 ">
                     <div class="avatar-container">
-                        <div class="avatarname avatar1name">JE</div>
+                        <div class="avatarname avatar1name">P1</div>
                         <span class="badge-icon mini-x ">✕</span>
                     </div>
-                    <span class="playername player1name">Jose Emilio</span>
+                    <span class="playername player1name">Player 1</span>
                 </div>
                 <div class="vs-text">VS</div>
                 <div class="player-badge playerbadgep2">
                     <div class="avatar-container">
-                        <div class="avatarname avatar2name avatarname-disable">CPU</div>
+                        <div class="avatarname avatar2name avatarname-disable">P2</div>
                         <span class="badge-icon mini-o">◯</span>
                     </div>
-                    <span class="playername player2name">Computadora</span>
+                    <span class="playername player2name">Player 2</span>
                 </div>
             </div>
 
@@ -48,15 +48,15 @@
             <div class="inner-scoreboard">
                 <div class="stat-box">
                     <span class="stat-name statname1">JE</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-value stat-ganadasP1">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
                     <span class="stat-name statname2">CPU</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-value stat-ganadasP2">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
                     <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
-                    <span class="stat-value">0 EMPATES</span>
+                    <span class="stat-value stat-empates">0 EMPATES</span>
                 </div>
             </div>
 
@@ -105,66 +105,76 @@
     </main>
 
     <!-- Pantalla de Ganador -->
-    <div class="resultado-container-ganador">
-        <div class="resultado-content">
+    <div class="popup-container resultado-container-ganador hidden">
+        <div class="popup-content">
             <img class="trofeo" src="assets/icons/trofeo.png" alt="">
             <div class="victoria">VICTORIA</div>
             <div class="nombre-pj">JOSE EMILIO</div>
             <div class="stats">
                 <div class="stat-box">
-                    <span class="stat-name">JE</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-name statname1">JE</span>
+                    <span class="stat-value stat-ganadasP1">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-name">CPU</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-name statname2">CPU</span>
+                    <span class="stat-value stat-ganadasP2">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
                     <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
-                    <span class="stat-value">0 EMPATES</span>
+                    <span class="stat-value stat-empates">0 EMPATES</span>
                 </div>
             </div>
             <div class="btn-container">
-                <button class="btn btn-play-again btn-blue-square">Proxima ronda</button>
-                <button class="btn btn-salir btn-orange-square">Salir</button>
+                <button id="btn-reiniciar-victoria" class="btn btn-play-again btn-blue">Proxima ronda</button>
+                <button id="btn-salir-victoria" class="btn btn-salir btn-orange">Salir</button>
             </div>
         </div>
     </div>
 
     <!-- Pantalla de Perdedor -->
-    <div class="resultado-container-perdedor">
-        <div class="resultado-content">
+    <div class="popup-container resultado-container-perdedor hidden ">
+        <div class="popup-content">
             <img class="loser" src="assets/icons/loser.png" alt="">
             <div class="victoria">PERDISTE</div>
             <div class="nombre-pj">JOSE EMILIO</div>
             <div class="stats">
                 <div class="stat-box">
-                    <span class="stat-name">JE</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-name statname1">JE</span>
+                    <span class="stat-value stat-ganadasP1">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-name">CPU</span>
-                    <span class="stat-value">0 GANADAS</span>
+                    <span class="stat-name statname2">CPU</span>
+                    <span class="stat-value stat-ganadasP2">0 GANADAS</span>
                 </div>
                 <div class="stat-box">
                     <span class="balance-icon"><img src="assets/icons/lawyer.png" alt="Icono de empate"></span>
-                    <span class="stat-value">0 EMPATES</span>
+                    <span class="stat-value stat-empates">0 EMPATES</span>
                 </div>
             </div>
             <div class="btn-container">
-                <button class="btn btn-play-again btn-blue-square">Proxima ronda</button>
-                <button class="btn btn-salir btn-orange-square">Salir</button>
+                <button class="btn btn-play-again btn-blue">Proxima ronda</button>
+                <button class="btn btn-salir btn-orange">Salir</button>
             </div>
         </div>
     </div>
 
     <!-- Pantalla de Salida -->
-    <div class="salida-container">
-        <div class="salida-content">
+    <div class="popup-container salida-container hidden">
+        <div class="popup-content">
             <div class="salir-text">¿Seguro que desea reiniciar la partida?</div>
             <div class="btn-container">
-                <button class="btn btn-reiniciar btn-blue-square">REINICIAR PARTIDA</button>
-                <button class="btn btn-cancelar btn-orange-square">CANCELAR</button>
+                <button class="btn btn-reiniciar btn-blue">REINICIAR PARTIDA</button>
+                <button class="btn btn-cancelar btn-orange">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Empate -->
+    <div class="popup-container empate-container hidden">
+        <div class="popup-content">
+            <div class="empate-text">EMPATE</div>
+            <div class="btn-container">
+                <button id="btn-cerrar-empate" class="btn btn-cancelar  btn-orange">CERRAR</button>
             </div>
         </div>
     </div>

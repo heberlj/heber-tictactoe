@@ -36,3 +36,12 @@ btnStart.addEventListener('click', () => {
         localStorage.removeItem('player2');
     }
 })
+
+// INICIALIZAR 
+localStorage.removeItem('player1');
+localStorage.removeItem('player2');
+localStorage.removeItem('turnoplayer1');
+localStorage.removeItem('ganadasP1');
+localStorage.removeItem('ganadasP2');
+localStorage.removeItem('empates');
+
