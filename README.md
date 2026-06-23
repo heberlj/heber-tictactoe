@@ -2,6 +2,12 @@
 
 Juego de Tres en Raya desarrollado con HTML, CSS y JavaScript vanilla. Incluye dos modos de juego, marcador persistente y una interfaz completa con pantallas de carga, menú, registro de jugadores y modales de resultado.
 
+## Capturas
+
+| Menú principal | Registro de jugador | Tablero de juego |
+|:---:|:---:|:---:|
+| ![Menú principal](assets/img/Cap1.PNG) | ![Registro de jugador](assets/img/Cap2.PNG) | ![Tablero de juego](assets/img/Cap3.PNG) |
+
 ## Características
 
 - Pantalla de carga con barra de progreso
@@ -33,10 +39,9 @@ git clone https://github.com/heberlj/heber-tictactoe.git
 
 > También puedes usar la extensión **Live Server** en VS Code para una mejor experiencia de desarrollo.
 
-OPCIÒN 2:
+**Opción 2 — Demo en línea:**
 
-1. Entrar al enlace de Netlify:
-https://whimsical-nougat-d9af65.netlify.app/
+Visita [https://whimsical-nougat-d9af65.netlify.app/](https://whimsical-nougat-d9af65.netlify.app/)
 
 
 ## Cómo jugar
@@ -72,7 +77,9 @@ dashboard.html      → Tablero y lógica del juego
 ├── dashboard.css        # Estilos del tablero
 ├── name1player.css      # Estilos pantalla 1 jugador
 ├── name2players.css     # Estilos pantalla 2 jugadores
-└── assets/              # Iconos e imágenes
+└── assets/
+    ├── icons/           # Iconos del juego
+    └── img/             # Capturas de pantalla (Cap1, Cap2, Cap3)
 ```
 
 ## Decisiones técnicas
@@ -85,7 +92,6 @@ dashboard.html      → Tablero y lógica del juego
 ## Mejoras futuras
 
 - IA más inteligente (bloquear jugadas ganadoras, intentar ganar)
-- Diseño responsive para móvil y tablet
 - Tests unitarios para la lógica del juego
 - Modo online con WebSockets
 - Sonidos incluidos
